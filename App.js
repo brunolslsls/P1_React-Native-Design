@@ -13,7 +13,7 @@ export default function App() {
   return (
     <NavigationContainer // NavigationContainer = Tag responsavel para criar rotas
     >
-      <Stack.Navigator // // Stack.Navigator = responsavel de selecionar a rota que ira ser acessada
+      <Stack.Navigator initialRouteName="Home"  // Stack.Navigator = responsavel de selecionar a rota que ira ser acessada
       >
         <Stack.Screen  // Stack.Screen = é a rota em si que sera acessada
           name="Home" // nome da rota
