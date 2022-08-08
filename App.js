@@ -18,6 +18,13 @@ export default function App() {
         <Stack.Screen  // Stack.Screen = é a rota em si que sera acessada
           name="Home" // nome da rota
           component={Home} // Defone o arquivo que vai ser acessado
+          options={{ // cria opições 
+            title: 'Meu aplicativo', // titulo da opção
+            headerStyle: {           // estilo do fundo
+              backgroundColor: '#3f64c7',
+            },
+            headerTintColor: '#FFF', // estilo do texto
+          }}
         />
         <Stack.Screen name="Usuarios" component={Usuarios} />
       </Stack.Navigator>

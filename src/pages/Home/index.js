@@ -10,8 +10,9 @@ export default function Home({navigation}) {
       <Text> Home!</Text>
       <StatusBar style="auto" />
       <Button
-        title='Usuarios'
-        onPress={() => navigation.navigate('Usuarios')}
+        title="Usuarios"   // titulo do botão 
+        //onPress - vai acinar uma função apois de clica no botão
+        onPress={() => navigation.navigate('Usuarios',{nome:'Br'})} // enviando o valor de uma chave "nome" para a estancia da pagina "Usuarios" 
       ></Button>
 
     </View>
