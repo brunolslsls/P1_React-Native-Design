@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-  
+import {Ionicons} from '@expo/vector-icons';
 import Home from './src/pages/Home';
 import Usuarios from './src/pages/Usuarios';
 import Clientes from './src/pages/Clientes';
@@ -14,10 +14,30 @@ const Stack = createNativeStackNavigator();
 
 function Tabs() {
   return (
-    <Tab.Navigator // Tab.Navigator = Cria abas 
-    > 
+    <Tab.Navigator // Tab.Navigator = Cria Guias 
+      screenOptions={({ route }) => ({ // screenOptions = serve para connfigura a rota
+        tabBarIcon: ({ focused, color, size }) => { // tabBarIcon =  configuração os icones (estado de Focou, cor, tamanho )
+          let iconName;
+
+          if (route.name === 'Home') {  // verifica se estamos na pagina do "Home"
+            iconName = focused          // verifica se esta focado, uma variavel recebe foco e depois ver se é true ou false
+              ? 'ios-information-circle'
+              : 'ios-information-circle-outline';
+          } else if (route.name === 'Usuarios') {// verifica se estamos na pagina do "Usuarios"
+            iconName = focused ? 'bug-outline' : 'bug';
+          } else if (route.name === 'Clientes') {// verifica se estamos na pagina do "Clientes"
+            iconName = focused ? 'ios-people' : 'ios-people-outline';
+          }
+
+          // abaixo pode configura tamanho e cor dos icones  (valor , texto)
+          return <Ionicons name={iconName} size={size} color={color} />;
+        },
+        tabBarActiveTintColor: 'tomato', // se a guia esta ativa coloca essa cor
+        tabBarInactiveTintColor: 'gray', // se a guia esta Desativada coloca essa cor
+      })}
+    >
       <Tab.Screen name="Home" component={Home} //name = titulo da aba /  component = arquivo que vai ser acessado apois de clica na aba
-      />  
+      />
       <Tab.Screen name="Usuarios" component={Usuarios} />
       <Tab.Screen name="Clientes" component={Clientes} />
 
