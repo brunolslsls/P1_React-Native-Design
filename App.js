@@ -2,14 +2,30 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+  
 import Home from './src/pages/Home';
-
-
 import Usuarios from './src/pages/Usuarios';
+import Clientes from './src/pages/Clientes';
+
+// Criando variaveis Globais
+const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
+
+function Tabs() {
+  return (
+    <Tab.Navigator // Tab.Navigator = Cria abas 
+    > 
+      <Tab.Screen name="Home" component={Home} //name = titulo da aba /  component = arquivo que vai ser acessado apois de clica na aba
+      />  
+      <Tab.Screen name="Usuarios" component={Usuarios} />
+      <Tab.Screen name="Clientes" component={Clientes} />
+
+    </Tab.Navigator>
+  );
+}
 
 export default function App() {
-  const Stack = createNativeStackNavigator();
   return (
     <NavigationContainer // NavigationContainer = Tag responsavel para criar rotas
     >
@@ -17,7 +33,7 @@ export default function App() {
       >
         <Stack.Screen  // Stack.Screen = é a rota em si que sera acessada
           name="Home" // nome da rota
-          component={Home} // Defone o arquivo que vai ser acessado
+          component={Tabs} // Defone o arquivo que vai ser acessado
           options={{ // cria opições 
             title: 'Meu aplicativo', // titulo da opção
             headerStyle: {           // estilo do fundo

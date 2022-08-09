@@ -3,10 +3,10 @@ import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-export default function Usuarios({route}) { // parametro que recebe valor da chaves enviado para pagina
+export default function Usuarios() {
   return (
     <View style={styles.container}>
-      <Text>Dev: {route.params?.nome}</Text>{/**acessando conteudo enviado para pagina */}  
+      <Text>Clientes</Text>
       <StatusBar style="auto" />
     </View>
   );

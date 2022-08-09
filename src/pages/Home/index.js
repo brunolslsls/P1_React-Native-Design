@@ -12,7 +12,7 @@ export default function Home({navigation}) {
       <Button
         title="Usuarios"   // titulo do botão 
         //onPress - vai acinar uma função apois de clica no botão
-        onPress={() => navigation.navigate('Usuarios',{nome:'Br'})} // enviando o valor de uma chave "nome" para a estancia da pagina "Usuarios" 
+        onPress={() => navigation.navigate('Usuarios',{nome: 'Br'})} // enviando o valor de uma chave "nome" para a estancia da pagina "Usuarios" 
       ></Button>
 
     </View>
